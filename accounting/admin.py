@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 # For logging in to admin: username:pbhopalka and passwd:NORMAL
 
-from .models import C_Details, Manager
+from .models import C_Details, Manager, Bill_Record
 
 # Use admin.StackInline or admin.TabularInline if we have foreign keys and needs
 # to be included in one table. Check https://docs.djangoproject.com/en/1.8/intro/tutorial02/#adding-related-objects
@@ -26,6 +26,11 @@ class Manager_Admin(admin.ModelAdmin):
     ]
     list_display = ('ManaID', 'ManaName', 'ManaAuth')
 
+class Bill_Record_Admin(admin.ModelAdmin):
+    list_display = ('BillID', 'Date', 'Amount')
+    # Add filter on the page 
+    list_filter = ['Date']
 
 admin.site.register(C_Details, C_Details_Admin)
 admin.site.register(Manager, Manager_Admin)
+admin.site.register(Bill_Record, Bill_Record_Admin)

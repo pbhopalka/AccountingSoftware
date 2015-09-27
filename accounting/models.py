@@ -13,7 +13,6 @@ class C_Details(models.Model):
     Phone = models.CharField(max_length=10)
     PendingAmount = models.IntegerField(default=0)
 
-
     def __unicode__(self):
         return u'%d %s' %(self.CustID, self.CustName)
 
@@ -21,12 +20,22 @@ class C_Details(models.Model):
         return self.PendingAmount < limitAmount
     is_safe_state.short_description = 'Can take credit?'
 
+
 class Manager(models.Model):
     ManaID = models.AutoField(primary_key=True)
     ManaName = models.CharField(max_length=200)
-    ManaAuth = models.CharField(max_length=10, default='Normal') #can be normal or superuser
+    ManaAuth = models.CharField(max_length=10, default='normal') #can be normal or superuser
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
 
     def __unicode__(self):
         return self.ManaName
+
+class Bill_Record(models.Model):
+    BillID = models.AutoField(primary_key=True)
+    Date = models.DateField()
+    Cust_ID = models.ForeignKey(C_Details)
+    Amount = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return u'%d %s %d' %(self.BillID, self.Date, self.Amount)
