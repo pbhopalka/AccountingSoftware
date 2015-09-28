@@ -13,7 +13,6 @@ class C_Details_Admin(admin.ModelAdmin):
         (None,          {'fields':['CustName']}),
         ('Address',     {'fields':['AddStreet', 'AddDistrict', 'AddState']}),
         ('Contact Info',{'fields':['Email', 'Phone']}),
-        (None,          {'fields':['PendingAmount']}),
     ]
     # See https://docs.djangoproject.com/en/1.8/intro/tutorial02/#customize-the-admin-change-list
     list_display = ('CustID', 'CustName', 'PendingAmount', 'is_safe_state')

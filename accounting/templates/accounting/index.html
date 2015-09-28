@@ -1,0 +1,16 @@
+<h1>Customers</h1>
+{% if latest_CustID %}
+  <ul>
+  {% for id in latest_CustID %}
+    <li>
+      <a href="{% url 'polls:detail' id.CustID %}">{{ id.CustName }}</a>
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      {{ id.AddState }}
+      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      {{ id.Email }}
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p> No customer id is available</p>
+{% endif %}

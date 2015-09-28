@@ -1,0 +1,18 @@
+<h1>{{ cust_id.CustName }}</h1>
+<ul>
+  <h4>Bill Records</h4>
+  {% for bill in cust_id.bill_record_set.all %}
+    <li>{{ bill.Date }}
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        {{bill.Amount }}
+    </li>
+  {% endfor %}
+  <br>
+  <h4>Payment Records</h4>
+  {% for payment in cust_id.payment_record_set.all %}
+    <li>{{ payment.Date }}
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        {{payment.Amount }}
+    </li>
+  {% endfor %}
+</ul>
