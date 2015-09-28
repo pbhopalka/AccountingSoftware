@@ -39,3 +39,12 @@ class Bill_Record(models.Model):
 
     def __unicode__(self):
         return u'%d %s %d' %(self.BillID, self.Date, self.Amount)
+
+class Payment_Record(models.Model):
+    PaymentID = models.AutoField(primary_key=True)
+    Date = models.DateField()
+    Cust_ID = models.ForeignKey(C_Details)
+    Amount = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return u'%d %s %d' %(self.PaymentID, self.Date, self.Amount)
