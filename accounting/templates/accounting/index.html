@@ -1,9 +1,17 @@
 <h1>Customers</h1>
+<br>
+<button>
+  <a href="{% url 'accounting:newBill' %}">New Bill</a>
+</button>
+<button>
+  <a href="{% url 'accounting:newPayment' %}">New Payment</a>
+</button>
+<br>
 {% if latest_CustID %}
   <ul>
   {% for id in latest_CustID %}
     <li>
-      <a href="{% url 'polls:detail' id.CustID %}">{{ id.CustName }}</a>
+      <a href="{% url 'accounting:detail' id.CustID %}">{{ id.CustName }}</a>
       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
       {{ id.AddState }}
       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

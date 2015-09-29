@@ -1,0 +1,19 @@
+<h1>Create a new payment</h1>
+{% if error_message %}
+  <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<br>
+<form action="{% url 'accounting:save_payment' %}" method="post">
+  {% csrf_token %}
+  Date: <input type="date" name="date" id="date"/><br>
+  Customer: <select name="customer_info">
+  {% for customer in cust_id %}
+    <option name="customer" id="customer{{forloop.counter}}" value="{{ customer.CustID}}">
+      {{ customer.CustName }}</option>
+  {% endfor %}
+  </select>
+  <br>
+  Amount: <input type="text" id="Amount" name="Amount"/>
+  <br>
+  <input type="submit" value="Create" />
+</form>
