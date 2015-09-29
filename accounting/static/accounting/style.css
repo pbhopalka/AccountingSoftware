@@ -1,0 +1,44 @@
+li a{
+  color: green;
+}
+
+h1{
+  color: white;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+div{
+  display: block;
+}
+
+body{
+  background: white url("images/bg.jpg") no-repeat right bottom;
+}
+
+#content{
+  background-color: blue;
+  text-align: center;
+  padding:5px;
+}
+
+#date{
+  padding: 5px;
+}
+
+#customer{
+  padding: 5px;
+}
+
+#amount{
+  padding: 5px;
+}
+
+#header{
+  background-color: blue;
+  text-align: center;
+  padding: 5px;
+}

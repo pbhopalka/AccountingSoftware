@@ -1,12 +1,21 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'accounting/style.css' %}"/>
+
+<div id=content>
 <h1>Customers</h1>
+</div>
 <br>
+<div id=button>
 <button>
   <a href="{% url 'accounting:newBill' %}">New Bill</a>
 </button>
 <button>
   <a href="{% url 'accounting:newPayment' %}">New Payment</a>
 </button>
+</div>
 <br>
+<div id=list>
 {% if latest_CustID %}
   <ul>
   {% for id in latest_CustID %}
@@ -22,3 +31,4 @@
 {% else %}
   <p> No customer id is available</p>
 {% endif %}
+</div>

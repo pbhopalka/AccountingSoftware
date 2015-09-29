@@ -1,26 +1,25 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-#from django.views import generic
+from django.views import generic
 
 from .models import C_Details, Bill_Record
 
 # Create your views here.
-"""
+
 class IndexView(generic.ListView):
     template_name = "accounting/index.html"
     context_object_name = 'latest_CustID'
 
     def get_queryset(self):
         return C_Details.objects.order_by('-PendingAmount')[:5]
-"""
 
+"""
 def index(request):
     latest_CustID = C_Details.objects.order_by('-PendingAmount')[:5]
     context = { 'latest_CustID' : latest_CustID }
     return render(request, 'accounting/index.html', context)
 
-"""
 class DetailView(generic.DetailView):
     model = C_Details
     template_name = 'accounting/detail.html'

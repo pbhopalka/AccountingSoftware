@@ -1,4 +1,10 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'accounting/style.css' %}"/>
+
+<div id=content>
 <h1>{{ cust_id.CustName }}</h1>
+</div>
 <button><a href="{% url 'accounting:index' %}">Home</a></button>
 <ul>
   <h4>Bill Records</h4>
